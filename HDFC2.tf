@@ -2,7 +2,7 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/azure"
+      source  = "hashicorp/aws"
       
     }
   }
@@ -11,7 +11,7 @@ terraform {
 # Provider Block
 provider "aws" {
   profile = "default" 
-  region  = "ap-north-1"
+  region  = "ap-east-1"
 }
 
 #Resource Block
