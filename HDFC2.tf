@@ -11,7 +11,7 @@ terraform {
 # Provider Block
 provider "aws" {
   profile = "default" 
-  region  = "ap-south-1"
+  region  = "ap-north-1"
 }
 
 #Resource Block
@@ -23,6 +23,19 @@ resource "aws_instance" "ec2testserver" {
 
 
 # Create VPC Terraform Module
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  
+
+  # VPC Basic Details
+  name = "vpc-dev"
+  cidr = "10.0.0.0/16"   
+  azs                 = ["us-east-1a"]
+  private_subnets     = ["10.0.1.0/24"]
+  public_subnets      = ["10.0.101.0/24"]
+
+#new comment added 
+  # Create VPC Terraform Module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   
